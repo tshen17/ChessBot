@@ -158,4 +158,9 @@ def evaluate_capture(board, capture):
 
     frm, to = capture.frm, capture.to
     att, vic = board.pos[frm], board.pos[to].upper()
+
+    # En passant
+    if board.ep:
+        vic = board.pos[board.ep + 10].upper()
+
     return pst[vic][to] - pst[att][frm]
